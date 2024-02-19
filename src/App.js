@@ -1,29 +1,23 @@
 import React from "react";
-import { Formik, Form, Field } from "formik";
-
 import "./App.css";
+
+import { Formik, Form, Field } from "formik";
 import { signupSchema } from "./schemas";
 
-const initialValues = {
-    name: "",
-    email: "",
-    password: "",
-    cpassword: "",
-};
+const initialValues = { name: "", email: "", password: "", cpassword: "",};
 
 const App = () => {
-    const onSubmit = (values, actions) => {
+ 
+  const onSubmit = (values, actions) => {
         console.log(values);
         actions.resetForm();
     };
 
     return (
         <div className='app'>
-            <Formik
-                initialValues={initialValues}
-                validationSchema={signupSchema}
-                onSubmit={onSubmit}>
+            <Formik initialValues={initialValues} validationSchema={signupSchema} onSubmit={onSubmit}>
                 {({ errors, touched }) => (
+                    
                     <Form className='signup_form'>
                         <label htmlFor='name'>Name</label>
                         <Field type='text' name='name' />
